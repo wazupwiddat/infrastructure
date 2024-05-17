@@ -94,6 +94,41 @@ Resources:
       SubnetId: !Ref PublicSubnetTwo
       RouteTableId: !Ref RouteTable
 
+  NatGateway:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      SubnetId: !Ref PublicSubnetOne
+      AllocationId: !GetAtt NatEIP.AllocationId
+
+  NatEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+
+  PrivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+
+  PrivateRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway
+
+  PrivateSubnetOneRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetOne
+      RouteTableId: !Ref PrivateRouteTable
+
+  PrivateSubnetTwoRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetTwo
+      RouteTableId: !Ref PrivateRouteTable
+
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -111,7 +146,18 @@ Resources:
         - IpProtocol: tcp
           FromPort: 8080
           ToPort: 8080
-          CidrIp: "0.0.0.0/0"
+          CidrIp: 0.0.0.0/0
+
+  RDSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow access to RDS
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !Ref SecurityGroup
 
   ALB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -192,7 +238,7 @@ Resources:
       MasterUserPassword: !Ref DBMasterUserPassword
       DBSubnetGroupName: !Ref DBSubnetGroup
       VpcSecurityGroupIds:
-        - !Ref SecurityGroup
+        - !Ref RDSecurityGroup
 
   DBInstance:
     Type: AWS::RDS::DBInstance
@@ -211,6 +257,12 @@ Outputs:
   PublicSubnetTwoId:
     Description: "The ID of the second public subnet"
     Value: !Ref PublicSubnetTwo
+  PrivateSubnetOneId:
+    Description: "The ID of the first private subnet"
+    Value: !Ref PrivateSubnetOne
+  PrivateSubnetTwoId:
+    Description: "The ID of the second private subnet"
+    Value: !Ref PrivateSubnetTwo
   SecurityGroupId:
     Description: "The ID of the security group"
     Value: !Ref SecurityGroup

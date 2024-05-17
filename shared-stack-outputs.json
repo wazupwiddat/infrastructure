@@ -1,10 +1,5 @@
 [
   {
-    "OutputKey": "HTTPSListenerArn",
-    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/744eb48bb03a64d3",
-    "Description": "The ARN of the HTTPS Listener"
-  },
-  {
     "OutputKey": "VPCId",
     "OutputValue": "vpc-0103475eb5314896d",
     "Description": "The ID of the VPC"
@@ -13,16 +8,6 @@
     "OutputKey": "PublicSubnetOneId",
     "OutputValue": "subnet-08f01674ca4fb0b21",
     "Description": "The ID of the first public subnet"
-  },
-  {
-    "OutputKey": "HTTPListenerArn",
-    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/4694b7e3a2d0463f",
-    "Description": "The ARN of the HTTP Listener"
-  },
-  {
-    "OutputKey": "ECSClusterName",
-    "OutputValue": "shared-stack-ECSCluster-CrrIW9kmQqVE",
-    "Description": "The name of the ECS Cluster"
   },
   {
     "OutputKey": "SecurityGroupId",
@@ -45,13 +30,38 @@
     "Description": "The endpoint of the Aurora MySQL DB cluster"
   },
   {
-    "OutputKey": "ALBArn",
-    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:loadbalancer/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807",
-    "Description": "The ARN of the ALB"
+    "OutputKey": "PrivateSubnetOneId",
+    "OutputValue": "subnet-0180a67ddf1e95f81",
+    "Description": "The ID of the first private subnet"
   },
   {
     "OutputKey": "ECSTaskExecutionRoleArn",
     "OutputValue": "arn:aws:iam::026450499422:role/shared-stack-ECSTaskExecutionRole-BLsaDPhV9rYL",
     "Description": "The ARN of the ECS Task Execution Role"
+  },
+  {
+    "OutputKey": "HTTPSListenerArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/744eb48bb03a64d3",
+    "Description": "The ARN of the HTTPS Listener"
+  },
+  {
+    "OutputKey": "HTTPListenerArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/4694b7e3a2d0463f",
+    "Description": "The ARN of the HTTP Listener"
+  },
+  {
+    "OutputKey": "ECSClusterName",
+    "OutputValue": "shared-stack-ECSCluster-CrrIW9kmQqVE",
+    "Description": "The name of the ECS Cluster"
+  },
+  {
+    "OutputKey": "PrivateSubnetTwoId",
+    "OutputValue": "subnet-0163355cee5ed21ab",
+    "Description": "The ID of the second private subnet"
+  },
+  {
+    "OutputKey": "ALBArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:loadbalancer/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807",
+    "Description": "The ARN of the ALB"
   }
 ]
