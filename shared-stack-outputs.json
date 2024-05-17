@@ -35,6 +35,16 @@
     "Description": "The ID of the second public subnet"
   },
   {
+    "OutputKey": "DBClusterPort",
+    "OutputValue": "3306",
+    "Description": "The port of the Aurora MySQL DB cluster"
+  },
+  {
+    "OutputKey": "DBClusterEndpoint",
+    "OutputValue": "shared-stack-dbcluster-t6ig9kaai3rl.cluster-c1y9kdpk6bcs.us-east-1.rds.amazonaws.com",
+    "Description": "The endpoint of the Aurora MySQL DB cluster"
+  },
+  {
     "OutputKey": "ALBArn",
     "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:loadbalancer/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807",
     "Description": "The ARN of the ALB"
