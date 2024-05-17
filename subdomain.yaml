@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Route 53 DNS setup for subdomains
+
+Parameters:
+  HostedZoneId:
+    Type: String
+    Description: The ID of the Route 53 Hosted Zone
+  ALBDNSName:
+    Type: String
+    Description: The DNS name of the ALB
+  ALBHostedZoneId:
+    Description: "Hosted Zone ID for the ALB (us-east-1)"
+    Type: String
+    Default: "Z35SXDOTRQ7X7K"  # The hosted zone ID for ALB in us-east-1
+
+Resources:
+  OptionsApiRecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: api.jrdub.com
+      Type: A
+      AliasTarget:
+        DNSName: !Ref ALBDNSName
+        HostedZoneId: !Ref ALBHostedZoneId
+
+  StockPortfolioApiRecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: stock-portfolio-api.jrdub.com
+      Type: A
+      AliasTarget:
+        DNSName: !Ref ALBDNSName
+        HostedZoneId: !Ref ALBHostedZoneId

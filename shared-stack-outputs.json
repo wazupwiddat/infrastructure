@@ -1,0 +1,47 @@
+[
+  {
+    "OutputKey": "HTTPSListenerArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/744eb48bb03a64d3",
+    "Description": "The ARN of the HTTPS Listener"
+  },
+  {
+    "OutputKey": "VPCId",
+    "OutputValue": "vpc-0103475eb5314896d",
+    "Description": "The ID of the VPC"
+  },
+  {
+    "OutputKey": "PublicSubnetOneId",
+    "OutputValue": "subnet-08f01674ca4fb0b21",
+    "Description": "The ID of the first public subnet"
+  },
+  {
+    "OutputKey": "HTTPListenerArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:listener/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807/4694b7e3a2d0463f",
+    "Description": "The ARN of the HTTP Listener"
+  },
+  {
+    "OutputKey": "ECSClusterName",
+    "OutputValue": "shared-stack-ECSCluster-CrrIW9kmQqVE",
+    "Description": "The name of the ECS Cluster"
+  },
+  {
+    "OutputKey": "SecurityGroupId",
+    "OutputValue": "sg-00a5c7c31b132da2b",
+    "Description": "The ID of the security group"
+  },
+  {
+    "OutputKey": "PublicSubnetTwoId",
+    "OutputValue": "subnet-0dc87b75eda15bade",
+    "Description": "The ID of the second public subnet"
+  },
+  {
+    "OutputKey": "ALBArn",
+    "OutputValue": "arn:aws:elasticloadbalancing:us-east-1:026450499422:loadbalancer/app/shared-s-ALB-PJllIXoM09eh/d98de46b7f653807",
+    "Description": "The ARN of the ALB"
+  },
+  {
+    "OutputKey": "ECSTaskExecutionRoleArn",
+    "OutputValue": "arn:aws:iam::026450499422:role/shared-stack-ECSTaskExecutionRole-BLsaDPhV9rYL",
+    "Description": "The ARN of the ECS Task Execution Role"
+  }
+]
